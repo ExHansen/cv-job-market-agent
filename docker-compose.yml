@@ -1,0 +1,44 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env.example
+    environment:
+      - OLLAMA_BASE_URL=http://host.docker.internal:11434
+      - CORS_ORIGINS=http://localhost:3000
+    volumes:
+      - ./data:/data
+      - ./config:/config
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+
+  # --------------------------------------------------------------------------
+  # Week 3-4 Upgrade Services (Uncomment when ready for Phase 2 / Flagship)
+  # --------------------------------------------------------------------------
+  # phoenix:
+  #   image: arizephoenix/phoenix:latest
+  #   ports:
+  #     - "6006:6006"
+  #     - "4317:4317"
+  #   environment:
+  #     - PHOENIX_WORKING_DIR=/phoenix_data
+  #   volumes:
+  #     - phoenix_data:/phoenix_data
+
+# volumes:
+#   phoenix_data:

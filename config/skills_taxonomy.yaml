@@ -1,0 +1,100 @@
+# Canonical skill normalization dictionary (Stage-1 deterministic extraction)
+# Format: canonical_name -> category + aliases (case-insensitive matching)
+
+skills:
+  Python:
+    category: language
+    aliases: ["python", "python3", "py"]
+  SQL:
+    category: language
+    aliases: ["sql", "postgresql", "postgres", "mysql", "t-sql", "tsql", "pl/sql", "ansi sql"]
+  PySpark:
+    category: processing
+    aliases: ["pyspark", "apache spark", "spark", "spark sql"]
+  Scala:
+    category: language
+    aliases: ["scala"]
+  dbt:
+    category: transformation
+    aliases: ["dbt", "dbt-core", "dbt core", "dbt cloud", "data build tool"]
+  Apache Airflow:
+    category: orchestration
+    aliases: ["airflow", "apache airflow", "airflow 2", "airflow 3", "cloud composer"]
+  Dagster:
+    category: orchestration
+    aliases: ["dagster"]
+  Prefect:
+    category: orchestration
+    aliases: ["prefect"]
+  Apache Iceberg:
+    category: lakehouse
+    aliases: ["iceberg", "apache iceberg"]
+  Delta Lake:
+    category: lakehouse
+    aliases: ["delta lake", "delta table", "deltalake"]
+  Parquet:
+    category: lakehouse
+    aliases: ["parquet", "apache parquet"]
+  Google BigQuery:
+    category: warehouse
+    aliases: ["bigquery", "google bigquery", "gcp bigquery", "bq"]
+  Snowflake:
+    category: warehouse
+    aliases: ["snowflake", "snowflake data warehouse"]
+  Databricks:
+    category: warehouse
+    aliases: ["databricks", "databricks lakehouse"]
+  AWS Redshift:
+    category: warehouse
+    aliases: ["redshift", "amazon redshift", "aws redshift"]
+  DuckDB:
+    category: warehouse
+    aliases: ["duckdb", "motherduck"]
+  ClickHouse:
+    category: warehouse
+    aliases: ["clickhouse", "clickhouse cloud"]
+  Apache Kafka:
+    category: streaming
+    aliases: ["kafka", "apache kafka", "confluent"]
+  Apache Flink:
+    category: streaming
+    aliases: ["flink", "apache flink"]
+  AWS:
+    category: cloud
+    aliases: ["aws", "amazon web services", "aws s3", "aws glue", "aws lambda", "emr"]
+  GCP:
+    category: cloud
+    aliases: ["gcp", "google cloud", "google cloud platform", "gcs", "dataflow"]
+  Azure:
+    category: cloud
+    aliases: ["azure", "microsoft azure", "azure data factory", "synapse", "microsoft fabric"]
+  Docker:
+    category: dataops
+    aliases: ["docker", "containers", "docker compose"]
+  Kubernetes:
+    category: dataops
+    aliases: ["kubernetes", "k8s"]
+  Terraform:
+    category: dataops
+    aliases: ["terraform", "iac", "infrastructure as code"]
+  CI/CD:
+    category: dataops
+    aliases: ["ci/cd", "cicd", "github actions", "gitlab ci", "jenkins"]
+  Git:
+    category: dataops
+    aliases: ["git", "github", "gitlab"]
+  Data Quality:
+    category: governance
+    aliases: ["great expectations", "soda", "data quality", "data observability", "data contracts", "monte carlo"]
+  Dimensional Modeling:
+    category: modeling
+    aliases: ["dimensional modeling", "star schema", "kimball", "data modeling", "scd type 2", "medallion architecture"]
+  FastAPI:
+    category: ai_backend
+    aliases: ["fastapi"]
+  LangGraph:
+    category: ai_backend
+    aliases: ["langgraph", "langchain"]
+  RAG / Vector DB:
+    category: ai_backend
+    aliases: ["rag", "retrieval-augmented generation", "vector database", "lancedb", "qdrant", "pgvector", "pinecone"]

@@ -1,0 +1,38 @@
+# Deterministic ATS quality rules enforced by Critic Node
+
+bullet_rules:
+  min_words: 8
+  max_words: 35
+  max_bullets_per_role: 5
+  require_action_verb_start: true
+
+summary_rules:
+  min_words: 20
+  max_words: 65
+
+page_rules:
+  max_pages_under_5y_exp: 1
+  max_pages_senior: 2
+
+standard_sections:
+  - Professional Summary
+  - Technical Skills
+  - Work Experience
+  - Projects
+  - Education
+
+forbidden_fluff_phrases:
+  - "hardworking"
+  - "team player"
+  - "detail-oriented"
+  - "responsible for"
+  - "duties included"
+  - "passionate about"
+  - "synergy"
+  - "go-getter"
+
+scoring_weights:
+  mandatory_skill_coverage: 0.50
+  rising_skill_coverage: 0.20
+  quantified_impact_ratio: 0.20
+  ats_format_compliance: 0.10

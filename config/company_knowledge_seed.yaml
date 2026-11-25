@@ -1,0 +1,370 @@
+# Curated starter knowledge base for Indonesian & SEA target companies (Data & AI roles).
+# Stored into DuckDB (`company_profiles`) on first boot so both Company Deep-Dive and
+# CareerOS AI Copilot have immediate structured data on positives, keluh kesah, JD patterns,
+# and estimated monthly IDR salary bands.
+#
+# Note: Salary bands & employee sentiment patterns are public market estimates (2025-2026)
+# intended as guidance; users can enrich/update entries anytime via UI or CSV/API.
+
+companies:
+  - company_name: "Bank Jago"
+    aliases: ["jago", "pt bank jago tbk"]
+    industry: "Fintech / Digital Banking"
+    company_stage: "Public (IDX: ARTO) • GoTo Ecosystem"
+    headquarters: "Jakarta, Indonesia"
+    overall_rating: 4.1
+    work_life_balance: 3.9
+    culture_score: 4.2
+    career_growth: 4.1
+    verdict: "Recommended"
+    condition_summary: "Bank digital berbasis cloud-native yang terintegrasi dengan ekosistem GoTo/Bibit. Tim data kuat pada real-time banking, risk analytics, dan kepatuhan regulasi OJK."
+    positives:
+      - "Tech stack modern (cloud-native GCP/AWS, streaming, modern data warehouse) dan budaya engineering yang rapi."
+      - "Benefit & kompensasi kompetitif untuk standar perbankan digital Indonesia, dengan lingkungan kerja kolaboratif."
+      - "Eksposur tinggi ke kasus nyata fintech: credit risk, fraud detection, dan pelaporan regulasi OJK."
+    kesah_kesuh:
+      - "Proses compliance, security approval, dan governance perbankan OJK membuat deployment/akses data kadang lambat."
+      - "Ekspektasi akurasi & SLA sangat ketat karena menyangkut transaksi keuangan real-time."
+      - "Koordinasi lintas divisi (Product, Risk, Compliance, Ops) bisa cukup intens saat puncak rilis fitur."
+    common_positions:
+      - "Data Engineer"
+      - "Analytics Engineer"
+      - "Data Quality / Governance Engineer"
+      - "Risk Data Analyst"
+    typical_tech_stack: ["Python", "SQL", "Google BigQuery", "Apache Airflow", "Apache Kafka", "dbt", "GCP", "Data Quality"]
+    typical_jd_summary: "Membangun & memelihara data pipeline batch dan streaming untuk transaksi perbankan, risk scoring, PII masking, data quality SLA, dan pelaporan regulasi OJK."
+    salary_idr_junior: "Rp 10.000.000 – Rp 15.000.000 / bulan"
+    salary_idr_mid: "Rp 16.000.000 – Rp 26.000.000 / bulan"
+    salary_idr_senior: "Rp 28.000.000 – Rp 45.000.000 / bulan"
+    source_notes: "Curated Indonesia tech market benchmark & public employer review patterns (2025-2026)."
+
+  - company_name: "Shopee Indonesia"
+    aliases: ["shopee", "sea group", "shopeepay"]
+    industry: "E-Commerce / Marketplace"
+    company_stage: "Public (NYSE: SE) • Regional Giant"
+    headquarters: "Jakarta, Indonesia (HQ Singapore)"
+    overall_rating: 3.8
+    work_life_balance: 3.1
+    culture_score: 3.6
+    career_growth: 4.2
+    verdict: "Mixed - Selective"
+    condition_summary: "E-commerce terbesar di Asia Tenggara dengan skala data sangat masif (ratusan TB/PB). Sangat kuat untuk CV branding dan belajar big data berskala besar, namun ritme kerja terkenal cepat dan padat."
+    positives:
+      - "Skala data raksasa (e-commerce, logistik SPX, ShopeePay) — pengalaman sangat bernilai tinggi di CV."
+      - "Proses belajar sangat cepat; eksposur ke sistem terdistribusi (Spark, Hive, Presto/Trino, Kafka, ClickHouse)."
+      - "Kompensasi, bonus performa, dan jenjang karier cukup terstruktur untuk high-performer."
+    kesah_kesuh:
+      - "Work-life balance sering jadi keluhan utama: jam kerja panjang, on-call/lembur terutama saat kampanye tanggal kembar (11.11, 12.12, Ramadan)."
+      - "Target dan perubahan prioritas bisnis (ad-hoc request) sangat cepat sehingga rawan burnout."
+      - "Struktur organisasi besar membuat sebagian keputusan engineering tersentralisasi di HQ Singapura."
+    common_positions:
+      - "Data Engineer"
+      - "Data Analyst"
+      - "Business Intelligence Analyst"
+      - "Data Quality Analyst"
+    typical_tech_stack: ["SQL", "Python", "PySpark", "Apache Airflow", "Apache Kafka", "ClickHouse", "Dimensional Modeling"]
+    typical_jd_summary: "Mengelola pipeline big data transaksi e-commerce/logistik, optimasi query skala besar, pemodelan data mart untuk BI/Campaign, dan monitoring SLA data harian."
+    salary_idr_junior: "Rp 10.000.000 – Rp 16.000.000 / bulan"
+    salary_idr_mid: "Rp 18.000.000 – Rp 30.000.000 / bulan"
+    salary_idr_senior: "Rp 32.000.000 – Rp 55.000.000 / bulan"
+    source_notes: "Curated Indonesia tech market benchmark & public employer review patterns (2025-2026)."
+
+  - company_name: "GoTo (Gojek / GoTo Financial)"
+    aliases: ["goto", "gojek", "gopay", "goto financial", "gtf"]
+    industry: "Superapp / Fintech / Mobility"
+    company_stage: "Public (IDX: GOTO)"
+    headquarters: "Jakarta, Indonesia"
+    overall_rating: 4.0
+    work_life_balance: 3.8
+    culture_score: 4.1
+    career_growth: 4.0
+    verdict: "Recommended"
+    condition_summary: "Ekosistem teknologi Indonesia (On-Demand Gojek + GoTo Financial/GoPay). Sangat matang dalam engineering culture dan modern data stack (GCP/BigQuery/Kafka/Airflow/dbt), sedang sangat fokus pada efisiensi biaya (FinOps) dan profitabilitas."
+    positives:
+      - "Engineering culture sangat matang, dokumentasi rapi, code review & testing ketat — sekolah terbaik bagi Data Engineer."
+      - "Modern cloud data stack (GCP, BigQuery, Kafka, Spark, Airflow, dbt, Data Mesh/Contracts)."
+      - "Lingkungan kerja fleksibel/hybrid, inklusif, dan sangat kuat untuk nilai jual CV."
+    kesah_kesuh:
+      - "Pasca gelombang efisiensi & restrukturisasi organisasi, tim lebih ramping sehingga scope kerja per orang lebih luas."
+      - "Fokus ketat pada cost optimization membuat anggaran eksperimen lebih selektif."
+      - "Promosi dan kenaikan gaji kini lebih ketat dibanding era hyper-growth."
+    common_positions:
+      - "Data Engineer"
+      - "Analytics Engineer"
+      - "BI / Product Data Analyst"
+    typical_tech_stack: ["Python", "SQL", "Google BigQuery", "Apache Kafka", "Apache Airflow", "PySpark", "dbt", "GCP", "Terraform"]
+    typical_jd_summary: "Merancang data platform real-time & batch di GCP/BigQuery, optimasi biaya query (FinOps), data governance/contracts, dan dukungan analitik produk GoPay/Gojek."
+    salary_idr_junior: "Rp 12.000.000 – Rp 18.000.000 / bulan"
+    salary_idr_mid: "Rp 20.000.000 – Rp 34.000.000 / bulan"
+    salary_idr_senior: "Rp 36.000.000 – Rp 60.000.000 / bulan"
+    source_notes: "Curated Indonesia tech market benchmark & public employer review patterns (2025-2026)."
+
+  - company_name: "FIT HUB"
+    aliases: ["fithub", "fit hub indonesia"]
+    industry: "Health / Fitness / Wellness"
+    company_stage: "Venture-Backed Growth Startup (Series A/B)"
+    headquarters: "Jakarta, Indonesia"
+    overall_rating: 3.7
+    work_life_balance: 3.5
+    culture_score: 3.7
+    career_growth: 3.9
+    verdict: "Mixed - Selective"
+    condition_summary: "Startup fitness & gym tech yang berekspansi agresif membuka ratusan cabang di Indonesia. Tim data sedang membangun fondasi data terpusat untuk membership, retensi, operasional multi-cabang, dan product analytics."
+    positives:
+      - "Pertumbuhan bisnis & ekspansi cabang sangat cepat — dampak kerja tim data langsung terlihat oleh manajemen."
+      - "Ruang kepemilikan (ownership) luas: cocok untuk engineer yang ingin membangun fondasi data dari awal hingga matang."
+      - "Budaya startup muda, energik, dan biasanya menyertakan benefit keanggotaan gym."
+    kesah_kesuh:
+      - "Sebagai startup yang tumbuh cepat, dokumentasi & standar data lintas cabang sering kali masih berkembang/belum seragam."
+      - "Permintaan data ad-hoc dari tim operasional & bisnis bisa cukup tinggi dan mendadak."
+      - "Struktur tim data relatif lebih kecil dibanding unicorn, sehingga satu engineer harus serba bisa (pipeline + DQ + modeling)."
+    common_positions:
+      - "Data Engineer"
+      - "Data Analyst"
+      - "Data Quality Analyst"
+    typical_tech_stack: ["Python", "SQL", "dbt", "Apache Airflow", "Google BigQuery", "Dimensional Modeling", "Data Quality"]
+    typical_jd_summary: "Membangun dan mengoperasikan data foundation yang andal untuk business reporting, product analytics, dimensional modeling, serta menjaga kualitas data operasional multi-cabang."
+    salary_idr_junior: "Rp 8.000.000 – Rp 13.000.000 / bulan"
+    salary_idr_mid: "Rp 14.000.000 – Rp 22.000.000 / bulan"
+    salary_idr_senior: "Rp 24.000.000 – Rp 36.000.000 / bulan"
+    source_notes: "Curated Indonesia startup market benchmark & LinkedIn FIT HUB Data Engineer JD signals."
+
+  - company_name: "Traveloka"
+    aliases: ["traveloka indonesia"]
+    industry: "Travel / Lifestyle Superapp"
+    company_stage: "Late-Stage Tech / Unicorn"
+    headquarters: "Tangerang / Jakarta, Indonesia"
+    overall_rating: 4.1
+    work_life_balance: 4.0
+    culture_score: 4.1
+    career_growth: 3.9
+    verdict: "Recommended"
+    condition_summary: "Platform travel & lifestyle terkemuka di Asia Tenggara dengan fondasi cloud AWS/GCP dan kultur engineering yang kuat serta work-life balance yang dikenal relatif sehat."
+    positives:
+      - "Work-life balance & budaya kerja relatif lebih sehat dibanding kompetitor e-commerce."
+      - "Standar software/data engineering tinggi (code review, automated testing, IaC, cloud architecture)."
+      - "Masalah bisnis menarik: dynamic pricing, recommendation, seasonality travel, dan payment."
+    kesah_kesuh:
+      - "Organisasi sudah cukup matang sehingga proses persetujuan lintas tim dan birokrasi internal lebih terasa."
+      - "Ruang inovasi cepat pada proyek kecil kadang kalah prioritas dibanding maintenance sistem inti."
+      - "Persaingan masuk (interview teknis SQL/Python/System Design) cukup ketat."
+    common_positions:
+      - "Data Engineer"
+      - "Analytics Engineer"
+      - "Data Analyst"
+    typical_tech_stack: ["Python", "SQL", "AWS", "Google BigQuery", "Apache Airflow", "PySpark", "dbt", "Terraform"]
+    typical_jd_summary: "Membangun scalable ELT/ETL pipelines, data warehouse modeling, data observability/quality, dan infrastruktur analitik untuk tim produk travel & fintech."
+    salary_idr_junior: "Rp 11.000.000 – Rp 17.000.000 / bulan"
+    salary_idr_mid: "Rp 19.000.000 – Rp 32.000.000 / bulan"
+    salary_idr_senior: "Rp 34.000.000 – Rp 55.000.000 / bulan"
+    source_notes: "Curated Indonesia tech market benchmark & public employer review patterns (2025-2026)."
+
+  - company_name: "Kredivo"
+    aliases: ["kredivo group", "finaccel"]
+    industry: "Fintech / BNPL / Digital Lending"
+    company_stage: "Late-Stage Fintech / Unicorn"
+    headquarters: "Jakarta, Indonesia"
+    overall_rating: 3.9
+    work_life_balance: 3.5
+    culture_score: 3.8
+    career_growth: 4.0
+    verdict: "Recommended"
+    condition_summary: "Pemain utama BNPL (PayLater) dan kredit digital di Indonesia & Vietnam (induk: FinAccel, juga memiliki Krom Bank). Data adalah jantung bisnis mereka (credit scoring, TWP90, fraud real-time)."
+    positives:
+      - "Sangat data-driven: Data Engineer & Risk Data punya peran vital dan dihargai langsung oleh manajemen."
+      - "Kasus nyata streaming/CDC, credit risk modeling, delinquency (TWP90), dan pelaporan OJK."
+      - "Kompensasi kompetitif untuk talenta data & risk di sektor fintech."
+    kesah_kesuh:
+      - "Tekanan SLA tinggi karena pipeline credit scoring & fraud berdampak langsung ke kerugian/NPL."
+      - "Ritme kerja cepat dan ekspektasi delivery dari tim Risk/Product cukup tinggi."
+      - "Kepatuhan ketat pada keamanan PII dan audit perbankan/OJK."
+    common_positions:
+      - "Data Engineer"
+      - "Risk Data Analyst"
+      - "Analytics Engineer"
+    typical_tech_stack: ["Python", "SQL", "Apache Kafka", "Apache Airflow", "PySpark", "Snowflake", "AWS", "dbt", "Data Quality"]
+    typical_jd_summary: "Membangun pipeline CDC/streaming untuk risk engine real-time, data warehouse credit/delinquency, PII security, dan pelaporan regulasi OJK."
+    salary_idr_junior: "Rp 10.000.000 – Rp 15.000.000 / bulan"
+    salary_idr_mid: "Rp 17.000.000 – Rp 28.000.000 / bulan"
+    salary_idr_senior: "Rp 30.000.000 – Rp 48.000.000 / bulan"
+    source_notes: "Curated Indonesia fintech market benchmark & public employer review patterns (2025-2026)."
+
+  - company_name: "BCA (Bank Central Asia)"
+    aliases: ["bca", "pt bank central asia tbk"]
+    industry: "Banking / Financial Services"
+    company_stage: "Public Blue-Chip (IDX: BBCA)"
+    headquarters: "Jakarta, Indonesia"
+    overall_rating: 4.3
+    work_life_balance: 4.0
+    culture_score: 4.2
+    career_growth: 4.0
+    verdict: "Recommended"
+    condition_summary: "Bank swasta terbesar di Indonesia dengan stabilitas bisnis sangat tinggi, skala transaksi perbankan terbesar di tanah air, dan program pelatihan IT/Data yang sangat terstruktur."
+    positives:
+      - "Stabilitas kerja sangat tinggi, bonus tahunan/THR terkenal besar, dan benefit kesehatan/pensiun sangat baik."
+      - "Skala data transaksi finansial raksasa (myBCA, QRIS, kartu kredit) dengan tata kelola enterprise."
+      - "Program pengembangan karier & training formal sangat terstruktur."
+    kesah_kesuh:
+      - "Birokrasi korporasi & persetujuan keamanan ketat — adopsi tools open-source terbaru cenderung lebih hati-hati."
+      - "Gaji pokok awal kadang terlihat lebih rendah dari startup, namun total kompensasi tahunan tinggi lewat bonus."
+      - "Sebagian besar peran masih menerapkan WFO/hybrid ketat dengan kultur korporat formal."
+    common_positions:
+      - "Data Engineer"
+      - "Data Quality & Governance Specialist"
+      - "Business Intelligence Analyst"
+    typical_tech_stack: ["SQL", "Python", "PySpark", "Apache Kafka", "Apache Airflow", "Data Quality", "Dimensional Modeling"]
+    typical_jd_summary: "Mengelola enterprise data warehouse, integrasi data perbankan, data quality & governance, serta pelaporan BI dan analitik nasabah."
+    salary_idr_junior: "Rp 8.500.000 – Rp 13.000.000 / bulan (+ bonus tahunan besar)"
+    salary_idr_mid: "Rp 15.000.000 – Rp 24.000.000 / bulan (+ bonus)"
+    salary_idr_senior: "Rp 26.000.000 – Rp 42.000.000 / bulan (+ bonus)"
+    source_notes: "Curated Indonesia banking market benchmark & public employer review patterns (2025-2026)."
+
+  - company_name: "Thales"
+    aliases: ["thales group", "thales indonesia"]
+    industry: "Aerospace / Defense / Cybersecurity / Digital Identity"
+    company_stage: "Public Multinational (Euronext: HO)"
+    headquarters: "Paris, France (Regional offices in Jakarta & Singapore)"
+    overall_rating: 4.0
+    work_life_balance: 4.1
+    culture_score: 3.9
+    career_growth: 3.7
+    verdict: "Recommended"
+    condition_summary: "Perusahaan teknologi multinasional asal Prancis di bidang Aerospace, Defense, Transport, dan Cybersecurity/Digital Identity (termasuk eks-Gemalto). Sangat ketat pada standar keamanan, kualitas data, dan keandalan sistem."
+    positives:
+      - "Work-life balance umumnya sangat baik dengan standar kerja perusahaan Eropa yang stabil."
+      - "Proyek bernilai tinggi dan mission-critical (keamanan siber, identitas digital, sistem transportasi/aviasi)."
+      - "Eksposur kolaborasi tim global (Prancis, Singapura, regional APAC) dan stabilitas tinggi."
+    kesah_kesuh:
+      - "Proses birokrasi, dokumentasi, dan persetujuan security compliance cukup panjang dan lambat."
+      - "Kenaikan gaji & promosi tahunan cenderung moderat dibanding perusahaan tech/startup cepat."
+      - "Adopsi teknologi baru di lingkungan enterprise/defense berjalan sangat konservatif."
+    common_positions:
+      - "Data Engineer"
+      - "Data Quality Engineer"
+      - "BI & Data Analyst"
+    typical_tech_stack: ["Python", "SQL", "Docker", "CI/CD", "Data Quality", "AWS", "Azure", "Dimensional Modeling"]
+    typical_jd_summary: "Membangun data pipeline andal dengan standar keamanan dan kualitas data tinggi, data reconciliation, otomasi pengujian, dan dukungan pelaporan operasional global."
+    salary_idr_junior: "Rp 10.000.000 – Rp 15.000.000 / bulan"
+    salary_idr_mid: "Rp 16.000.000 – Rp 27.000.000 / bulan"
+    salary_idr_senior: "Rp 28.000.000 – Rp 45.000.000 / bulan"
+    source_notes: "Curated multinational enterprise benchmark & public employer review patterns (2025-2026)."
+
+  - company_name: "TikTok / ByteDance Indonesia"
+    aliases: ["tiktok", "bytedance", "tokopedia tiktok"]
+    industry: "Social Media / E-Commerce / AI"
+    company_stage: "Global Tech Giant"
+    headquarters: "Jakarta, Indonesia (Global HQ Singapore / Beijing)"
+    overall_rating: 3.7
+    work_life_balance: 2.9
+    culture_score: 3.5
+    career_growth: 4.3
+    verdict: "Mixed - Selective"
+    condition_summary: "Raksasa teknologi global di balik TikTok & TikTok Shop (kolaborasi Tokopedia). Menawarkan kompensasi top-tier di Indonesia dan skala data ekstrem, dengan kultur kerja intensitas sangat tinggi."
+    positives:
+      - "Salah satu paket kompensasi (gaji + RSU/bonus) tertinggi di pasar teknologi Indonesia."
+      - "Skala data, real-time analytics, dan eksposur AI/ML kelas dunia — sangat prestisius di CV."
+      - "Lingkungan meritokratis; kontribusi besar cepat mendapat tanggung jawab strategis."
+    kesah_kesuh:
+      - "Work-life balance paling menantang: jam kerja panjang dan rapat lintas zona waktu (Singapura/China)."
+      - "Perubahan strategi, reorganisasi tim, dan target KPI bisa berubah sangat cepat."
+      - "Tekanan performa (performance review) sangat kompetitif."
+    common_positions:
+      - "Data Engineer"
+      - "Data Scientist / Analyst"
+      - "Data Quality & Trust Operations"
+    typical_tech_stack: ["SQL", "Python", "PySpark", "Apache Kafka", "Apache Flink", "ClickHouse", "Apache Airflow"]
+    typical_jd_summary: "Mengelola pipeline real-time & batch skala besar untuk e-commerce/konten, optimasi ClickHouse/Spark, eksperimen A/B, dan data quality SLA ketat."
+    salary_idr_junior: "Rp 14.000.000 – Rp 22.000.000 / bulan"
+    salary_idr_mid: "Rp 24.000.000 – Rp 40.000.000 / bulan"
+    salary_idr_senior: "Rp 42.000.000 – Rp 75.000.000 / bulan"
+    source_notes: "Curated Indonesia tech market benchmark & public employer review patterns (2025-2026)."
+
+  - company_name: "Grab Indonesia"
+    aliases: ["grab", "ovo"]
+    industry: "Superapp / Mobility / Delivery / Fintech"
+    company_stage: "Public (NASDAQ: GRAB)"
+    headquarters: "Jakarta, Indonesia (HQ Singapore)"
+    overall_rating: 4.0
+    work_life_balance: 3.8
+    culture_score: 4.0
+    career_growth: 3.9
+    verdict: "Recommended"
+    condition_summary: "Superapp regional Asia Tenggara (mobility, GrabFood, GrabMart, financial services). Kultur kolaboratif regional dengan standar engineering & analitik data yang sangat matang."
+    positives:
+      - "Eksposur regional Asia Tenggara dan kolaborasi erat dengan tim engineering di Singapura/Malaysia."
+      - "Infrastruktur data modern (Spark, Airflow, Kafka, Presto/Trino, AWS/Databricks) dan standar DQ jelas."
+      - "Work-life balance dan benefit karyawan umumnya dinilai baik."
+    kesah_kesuh:
+      - "Banyak peran core platform engineering terpusat di Singapura/India; di Jakarta lebih banyak fokus ke Analytics/Local Data Ops."
+      - "Struktur matriks organisasi besar membuat alignment antar-negara butuh waktu."
+      - "Pengetatan anggaran pasca-IPO membuat promosi lebih selektif."
+    common_positions:
+      - "Data Analyst"
+      - "Analytics Engineer"
+      - "Data Engineer"
+    typical_tech_stack: ["SQL", "Python", "PySpark", "Databricks", "Apache Airflow", "AWS", "dbt"]
+    typical_jd_summary: "Membangun data pipeline dan model analitik untuk operasional marketplace/delivery/fintech, optimasi metrik bisnis regional, dan otomasi pelaporan."
+    salary_idr_junior: "Rp 11.000.000 – Rp 17.000.000 / bulan"
+    salary_idr_mid: "Rp 18.000.000 – Rp 31.000.000 / bulan"
+    salary_idr_senior: "Rp 33.000.000 – Rp 55.000.000 / bulan"
+    source_notes: "Curated Indonesia tech market benchmark & public employer review patterns (2025-2026)."
+
+  - company_name: "Xendit"
+    aliases: ["xendit indonesia"]
+    industry: "Fintech / Payment Infrastructure"
+    company_stage: "Unicorn (Y Combinator Alumni)"
+    headquarters: "Jakarta, Indonesia"
+    overall_rating: 3.9
+    work_life_balance: 3.6
+    culture_score: 4.0
+    career_growth: 4.0
+    verdict: "Recommended"
+    condition_summary: "Payment gateway & infrastruktur pembayaran B2B terkemuka di Indonesia dan Filipina. Kultur startup internasional yang transparan dengan standar engineering tinggi."
+    positives:
+      - "Budaya engineering modern, transparan, dan berstandar internasional (YC-backed)."
+      - "Kasus nyata payment reconciliation, fraud analytics, streaming data, dan reliability tinggi."
+      - "Kompensasi kompetitif dan banyak menggunakan stack modern (AWS, Snowflake/BigQuery, Kafka, dbt, Terraform)."
+    kesah_kesuh:
+      - "Ekspektasi ownership dan kecepatan eksekusi tinggi — kurang cocok untuk yang butuh arahan mikro."
+      - "Sensitivitas tinggi terhadap error data finansial & rekonsiliasi transaksi merchant."
+      - "Pernah mengalami penyesuaian tim seperti banyak fintech lain, sehingga efisiensi sangat ditekankan."
+    common_positions:
+      - "Data Engineer"
+      - "Analytics Engineer"
+      - "Data Analyst"
+    typical_tech_stack: ["Python", "SQL", "AWS", "Snowflake", "dbt", "Apache Airflow", "Apache Kafka", "Terraform", "Data Quality"]
+    typical_jd_summary: "Membangun payment data warehouse, rekonsiliasi finansial otomatis, pipeline CDC/streaming, serta menjaga integritas dan observability data."
+    salary_idr_junior: "Rp 11.000.000 – Rp 16.000.000 / bulan"
+    salary_idr_mid: "Rp 18.000.000 – Rp 30.000.000 / bulan"
+    salary_idr_senior: "Rp 32.000.000 – Rp 52.000.000 / bulan"
+    source_notes: "Curated Indonesia fintech market benchmark & public employer review patterns (2025-2026)."
+
+  - company_name: "Mekari"
+    aliases: ["mekari indonesia", "jurnal", "talenta", "qontak"]
+    industry: "B2B SaaS (HR, Accounting, CRM)"
+    company_stage: "Growth B2B SaaS Leader"
+    headquarters: "Jakarta, Indonesia"
+    overall_rating: 4.0
+    work_life_balance: 4.0
+    culture_score: 4.0
+    career_growth: 3.9
+    verdict: "Recommended"
+    condition_summary: "Pemimpin SaaS B2B Indonesia (Talenta HRIS, Jurnal Akuntansi, Klikpajak, Qontak). Fokus pada integrasi data multi-produk SaaS, invoice/pajak Indonesia, dan analitik retensi SMB."
+    positives:
+      - "Work-life balance sangat baik dan lingkungan kerja ramah untuk bertumbuh."
+      - "Produk B2B SaaS beragam (akuntansi, pajak, HR, CRM) — sangat relevan dengan pengalaman data invoice/pajak & LLM QC."
+      - "Bisnis recurring revenue relatif stabil dibanding startup B2C bakar uang."
+    kesah_kesuh:
+      - "Integrasi data lintas banyak produk hasil akuisisi (Talenta, Jurnal, Qontak) menimbulkan kompleksitas schema & legacy DB."
+      - "Skala data tidak sebesar e-commerce raksasa, lebih fokus ke kualitas model bisnis & integrasi SaaS."
+      - "Range gaji sedikit di bawah tier unicorn/global tech."
+    common_positions:
+      - "Data Engineer"
+      - "Analytics Engineer"
+      - "BI Analyst"
+    typical_tech_stack: ["Python", "SQL", "Google BigQuery", "dbt", "Apache Airflow", "Docker", "Data Quality"]
+    typical_jd_summary: "Mengintegrasikan data multi-produk SaaS ke BigQuery + dbt, membangun dimensional models untuk SaaS metrics (ARR, churn, retention), dan menjaga kualitas data."
+    salary_idr_junior: "Rp 9.000.000 – Rp 14.000.000 / bulan"
+    salary_idr_mid: "Rp 15.000.000 – Rp 24.000.000 / bulan"
+    salary_idr_senior: "Rp 25.000.000 – Rp 38.000.000 / bulan"
+    source_notes: "Curated Indonesia B2B SaaS market benchmark & public employer review patterns (2025-2026)."

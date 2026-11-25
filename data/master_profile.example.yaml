@@ -1,0 +1,86 @@
+# Single Source of Truth for CV generation.
+# Copy this file to `data/master_profile.yaml` and fill with your real verified facts.
+
+profile:
+  full_name: "Alex Pratama"
+  headline: "Data Engineer"
+  target_roles:
+    - "Data Engineer"
+    - "Analytics Engineer"
+  location: "Jakarta, Indonesia"
+  email: "alex.pratama@example.com"
+  phone: "+62-812-0000-0000"
+  links:
+    github: "https://github.com/alexpratama"
+    linkedin: "https://linkedin.com/in/alexpratama"
+    website: ""
+  years_of_experience: 2.5
+
+skills_verified:
+  languages:
+    - "Python"
+    - "SQL"
+  transformation:
+    - "dbt"
+    - "Dimensional Modeling"
+  orchestration:
+    - "Apache Airflow"
+  warehouses_cloud:
+    - "Google BigQuery"
+    - "Snowflake"
+    - "DuckDB"
+    - "GCP"
+  dataops_quality:
+    - "Docker"
+    - "Git"
+    - "CI/CD"
+    - "Data Quality"
+
+experiences:
+  - id: "exp_01"
+    company: "PT Nusantara Retail Analytics"
+    role: "Data Engineer"
+    location: "Jakarta, Indonesia"
+    start_date: "2024-01"
+    end_date: "present"
+    bullets:
+      - id: "exp_01_b1"
+        raw_fact: "Built daily ELT pipelines ingesting REST APIs and PostgreSQL transaction data into Google BigQuery using Python and Apache Airflow."
+        metrics:
+          - "12M+ daily rows"
+          - "reduced reporting latency from 4 hours to 40 minutes"
+        tools_used: ["Python", "SQL", "Apache Airflow", "Google BigQuery"]
+        verified: true
+      - id: "exp_01_b2"
+        raw_fact: "Created modular dbt transformation models with Star Schema dimensional modeling and automated data quality tests."
+        metrics:
+          - "40+ dbt models"
+          - "cut downstream BI dashboard incidents by 55%"
+        tools_used: ["dbt", "SQL", "Dimensional Modeling", "Data Quality", "Google BigQuery"]
+        verified: true
+      - id: "exp_01_b3"
+        raw_fact: "Containerized ingestion jobs with Docker and configured GitHub Actions CI/CD to run automated SQL lint and unit checks."
+        metrics:
+          - "deployment failures reduced by 70%"
+        tools_used: ["Docker", "CI/CD", "Git", "Python"]
+        verified: true
+
+projects:
+  - id: "proj_01"
+    name: "Indonesia FMCG Commercial Data Platform"
+    period: "2025"
+    url: "https://github.com/alexpratama/fmcg-data-platform"
+    bullets:
+      - id: "proj_01_b1"
+        raw_fact: "Designed a Bronze-Silver-Gold medallion data pipeline using Python, DuckDB, and Parquet with automated anomaly detection."
+        metrics:
+          - "processes 500K+ weekly SKU price records"
+        tools_used: ["Python", "SQL", "DuckDB", "Parquet", "Data Quality"]
+        verified: true
+
+education:
+  - institution: "Universitas Indonesia"
+    degree: "B.Sc. in Computer Science"
+    start_date: "2019-08"
+    end_date: "2023-07"
+    gpa: "3.78/4.00"

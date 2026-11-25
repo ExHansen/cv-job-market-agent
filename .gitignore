@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+dist/
+build/
+*.egg-info/
+
+# Node / Next.js
+node_modules/
+frontend/.next/
+frontend/out/
+frontend/next-env.d.ts
+
+# Env & Secrets
+.env
+.env.local
+backend/.env
+frontend/.env.local
+
+# Local Data & Generated Artifacts (keep example templates & public daily snapshots)
+data/raw/
+data/outputs/
+data/data/
+**/rendercv_out/
+*.typ
+data/*.duckdb
+data/*.duckdb.wal
+data/vectors.lancedb/
+data/master_profile.yaml
+!data/master_profile.example.yaml
+!data/snapshots/
+!data/snapshots/**
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
