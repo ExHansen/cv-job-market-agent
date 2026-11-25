@@ -13,10 +13,12 @@ class MarketDatabase:
     """Embedded DuckDB analytical warehouse structured cleanly for future dbt-duckdb migration."""
 
     def __init__(self, db_path: Path | None = None) -> None:
+        is_default_db = db_path is None
         self.db_path = db_path or settings.duckdb_path
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
         self._init_schema()
-        self._bootstrap_from_daily_snapshot()
+        if is_default_db:
+            self._bootstrap_from_daily_snapshot()
 
     def _bootstrap_from_daily_snapshot(self) -> None:
         """Auto-load committed daily Parquet snapshot from GitHub Actions if DuckDB is empty."""

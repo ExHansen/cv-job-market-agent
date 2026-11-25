@@ -38,5 +38,7 @@ jobs:
           cache-dependency-path: frontend/package.json
       - name: Install dependencies
         run: npm install
-      - name: TypeScript typecheck
-        run: npx tsc --noEmit --incremental false
+      - name: Generate Next.js types & TypeScript typecheck
+        run: |
+          npx next typegen
+          npx tsc --noEmit --incremental false
