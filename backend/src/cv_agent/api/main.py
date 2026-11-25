@@ -133,9 +133,11 @@ def health() -> dict[str, str]:
 
 @app.get("/api/platform/status")
 def platform_status() -> dict:
-    """Inspect Phase 2 Data Platform (dbt Gold marts, DuckDB) & Arize Phoenix tracing health."""
+    """Inspect Phase 2 Data Platform (dbt Gold marts, DuckDB, Auto-Sync) & Phoenix tracing."""
     import duckdb
 
+    market_db = MarketDatabase()
+    snapshot_sync = market_db.get_snapshot_sync_status()
     dbt_marts: dict[str, int] = {}
     bronze_counts: dict[str, int] = {}
     if settings.duckdb_path.exists():
@@ -165,6 +167,7 @@ def platform_status() -> dict:
         "bronze_tables": bronze_counts,
         "dbt_gold_marts": dbt_marts,
         "dbt_ready": len(dbt_marts) > 0,
+        "snapshot_sync": snapshot_sync,
         "dagster_assets": [
             "bronze_company_knowledge",
             "bronze_daily_jobs",
