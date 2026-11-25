@@ -695,3 +695,23 @@ export async function getSavedMatchingJobs(
   if (!res.ok) throw new Error(`Failed to load saved jobs (${res.status})`);
   return res.json();
 }
+
+export interface PlatformStatus {
+  duckdb_path: string;
+  bronze_tables: Record<string, number>;
+  dbt_gold_marts: Record<string, number>;
+  dbt_ready: boolean;
+  dagster_assets: string[];
+  phoenix_tracing: {
+    enabled: boolean;
+    status: string;
+    endpoint: string;
+    ui_url: string;
+  };
+}
+
+export async function fetchPlatformStatus(): Promise<PlatformStatus> {
+  const res = await fetch(`${API_URL}/api/platform/status`);
+  if (!res.ok) throw new Error(`Failed to fetch platform status (${res.status})`);
+  return res.json();
+}

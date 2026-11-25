@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: bronze_raw
+    schema: main
+    description: "Raw operational tables populated in DuckDB by python-jobspy, Remotive, Arbeitnow, and Company KB seed."
+    tables:
+      - name: job_postings
+        description: "Deduplicated public job postings ingested from LinkedIn, Indeed, Remotive, and Arbeitnow."
+      - name: job_skills
+        description: "Canonical skill extractions mapped via skills_taxonomy.yaml."
+      - name: company_profiles
+        description: "Curated + user-enriched company conditions, positives, keluh kesah, and IDR salary bands."

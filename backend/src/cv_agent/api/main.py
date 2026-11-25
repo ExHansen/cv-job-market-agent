@@ -23,6 +23,7 @@ from cv_agent.ingestion.job_finder import (
     JobScope,
     find_matching_jobs,
 )
+from cv_agent.observability import get_tracing_status, init_phoenix_tracing
 from cv_agent.renderer.rendercv_bridge import export_and_render_pdf
 from cv_agent.schemas import (
     CompanyDeepDiveReport,
@@ -41,9 +42,11 @@ from cv_agent.storage.market_db import MarketDatabase
 
 app = FastAPI(
     title="CV & Job Market Intelligence AI Agent API",
-    version="0.2.0",
-    description="Local-first AI Agent for Company/Job Market Research & ATS CV Optimization.",
+    version="0.3.0",
+    description="Local-first AI Agent + dbt-duckdb + Dagster + Arize Phoenix Observability.",
 )
+
+init_phoenix_tracing()
 
 app.add_middleware(
     CORSMiddleware,
@@ -125,6 +128,49 @@ def health() -> dict[str, str]:
         "status": "ok",
         "llm_provider": settings.llm_provider,
         "model": active_model,
+    }
+
+
+@app.get("/api/platform/status")
+def platform_status() -> dict:
+    """Inspect Phase 2 Data Platform (dbt Gold marts, DuckDB) & Arize Phoenix tracing health."""
+    import duckdb
+
+    dbt_marts: dict[str, int] = {}
+    bronze_counts: dict[str, int] = {}
+    if settings.duckdb_path.exists():
+        try:
+            with duckdb.connect(str(settings.duckdb_path), read_only=True) as con:
+                for tbl in ("job_postings", "job_skills", "company_profiles"):
+                    try:
+                        r = con.execute(f"SELECT COUNT(*) FROM {tbl}").fetchone()
+                        bronze_counts[tbl] = int(r[0]) if r else 0
+                    except Exception:
+                        pass
+                for mart in (
+                    "main_gold.mart_role_skill_trends",
+                    "main_gold.mart_company_job_overview",
+                    "main_gold.mart_daily_ingestion_health",
+                ):
+                    try:
+                        r = con.execute(f"SELECT COUNT(*) FROM {mart}").fetchone()
+                        dbt_marts[mart] = int(r[0]) if r else 0
+                    except Exception:
+                        pass
+        except Exception:
+            pass
+
+    return {
+        "duckdb_path": str(settings.duckdb_path),
+        "bronze_tables": bronze_counts,
+        "dbt_gold_marts": dbt_marts,
+        "dbt_ready": len(dbt_marts) > 0,
+        "dagster_assets": [
+            "bronze_company_knowledge",
+            "bronze_daily_jobs",
+            "dbt_medallion_warehouse",
+        ],
+        "phoenix_tracing": get_tracing_status(),
     }
 
 

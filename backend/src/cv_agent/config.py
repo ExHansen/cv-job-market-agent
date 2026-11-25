@@ -37,6 +37,11 @@ class Settings(BaseSettings):
     backend_port: int = 8000
     cors_origins: str = "http://localhost:3000"
 
+    # Phase 2: Arize Phoenix OpenTelemetry Observability
+    enable_phoenix_tracing: bool = False
+    phoenix_collector_endpoint: str = "http://localhost:6006/v1/traces"
+    phoenix_ui_url: str = "http://localhost:6006"
+
     @property
     def cors_origin_list(self) -> list[str]:
         return [origin.strip() for origin in self.cors_origins.split(",") if origin.strip()]

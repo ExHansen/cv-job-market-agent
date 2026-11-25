@@ -29,14 +29,16 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install scraping dependencies
-        run: uv sync --extra scraping
+      - name: Install scraping + dbt dependencies
+        run: uv sync --extra scraping --extra v2
 
-      - name: Run daily Indonesia + Global Remote job ingestion
+      - name: Run daily Indonesia + Global Remote job ingestion & dbt build
         env:
           HOURS_OLD: ${{ github.event.inputs.hours_old || '72' }}
         run: |
           uv run cv-agent daily-sync --hours-old "$HOURS_OLD"
+          uv run python -c "from cv_agent.storage.companies_db import CompanyKnowledgeDatabase; CompanyKnowledgeDatabase()"
+          DUCKDB_PATH=../data/market.duckdb uv run dbt build --profiles-dir ../data_platform/dbt --project-dir ../data_platform/dbt
 
       - name: Commit updated daily snapshot to repo
         working-directory: .

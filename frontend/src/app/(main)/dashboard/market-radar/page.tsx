@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import { Radar, RefreshCw } from "lucide-react";
+import { Activity, Database, ExternalLink, Radar, RefreshCw } from "lucide-react";
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
 import { toast } from "sonner";
 
@@ -39,7 +39,9 @@ import {
 } from "@/components/ui/table";
 import {
   fetchMarketTrends,
+  fetchPlatformStatus,
   type MarketSnapshot,
+  type PlatformStatus,
   refreshMarketTrends,
 } from "@/lib/cv-api";
 
@@ -51,6 +53,7 @@ export default function MarketRadarPage() {
   const [role, setRole] = useState("Data Engineer");
   const [region, setRegion] = useState("Indonesia");
   const [snapshot, setSnapshot] = useState<MarketSnapshot | null>(null);
+  const [platform, setPlatform] = useState<PlatformStatus | null>(null);
   const [refreshing, setRefreshing] = useState(false);
 
   async function loadSnapshot(targetRole: string, targetRegion: string) {
@@ -65,6 +68,10 @@ export default function MarketRadarPage() {
   useEffect(() => {
     loadSnapshot(role, region);
   }, [role, region]);
+
+  useEffect(() => {
+    fetchPlatformStatus().then(setPlatform).catch(() => null);
+  }, []);
 
   async function handleRefresh() {
     setRefreshing(true);
@@ -122,6 +129,73 @@ export default function MarketRadarPage() {
           </Button>
         </div>
       </div>
+
+      {platform && (
+        <div className="grid gap-4 md:grid-cols-3">
+          <Card>
+            <CardHeader className="pb-2">
+              <CardDescription className="flex items-center gap-1.5">
+                <Database className="size-3.5 text-primary" />
+                dbt-duckdb Medallion Warehouse
+              </CardDescription>
+              <CardTitle className="text-base">
+                {platform.dbt_ready
+                  ? `${Object.keys(platform.dbt_gold_marts).length} Gold Marts Active`
+                  : "Run dbt build to materialize"}
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="flex flex-wrap gap-1.5 text-xs">
+              {Object.entries(platform.dbt_gold_marts).map(([name, rows]) => (
+                <Badge key={name} variant="secondary" className="font-mono text-[10px]">
+                  {name.replace("main_gold.", "")}: {rows}
+                </Badge>
+              ))}
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader className="pb-2">
+              <CardDescription>Dagster Asset Orchestration</CardDescription>
+              <CardTitle className="text-base">
+                {platform.dagster_assets.length} Software-Defined Assets
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="flex flex-wrap gap-1.5 text-xs">
+              {platform.dagster_assets.map((asset) => (
+                <Badge key={asset} variant="outline" className="font-mono text-[10px]">
+                  {asset}
+                </Badge>
+              ))}
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader className="pb-2">
+              <CardDescription className="flex items-center gap-1.5">
+                <Activity className="size-3.5 text-primary" />
+                Arize Phoenix OTel Tracing
+              </CardDescription>
+              <CardTitle className="text-base">
+                {platform.phoenix_tracing.enabled ? "Active" : "Standby (Local)"}
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="flex items-center justify-between text-xs text-muted-foreground">
+              <span className="truncate">{platform.phoenix_tracing.status}</span>
+              {platform.phoenix_tracing.ui_url && (
+                <a
+                  href={platform.phoenix_tracing.ui_url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex shrink-0 items-center gap-1 text-primary underline"
+                >
+                  Phoenix UI
+                  <ExternalLink className="size-3" />
+                </a>
+              )}
+            </CardContent>
+          </Card>
+        </div>
+      )}
 
       <Card>
         <CardHeader>

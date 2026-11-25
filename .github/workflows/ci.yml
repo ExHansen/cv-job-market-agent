@@ -24,6 +24,22 @@ jobs:
       - name: Run unit tests (Fact-Checker & DuckDB)
         run: uv run pytest -v
 
+  dbt-data-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+      - name: Install backend + dbt-duckdb
+        working-directory: backend
+        run: uv sync --extra v2
+      - name: Bootstrap DuckDB from committed public snapshot & run dbt build
+        working-directory: backend
+        run: |
+          uv run python -c "from cv_agent.storage.market_db import MarketDatabase; from cv_agent.storage.companies_db import CompanyKnowledgeDatabase; MarketDatabase(); CompanyKnowledgeDatabase()"
+          DUCKDB_PATH=../data/market.duckdb uv run dbt build --profiles-dir ../data_platform/dbt --project-dir ../data_platform/dbt
+
   frontend-checks:
     runs-on: ubuntu-latest
     defaults:

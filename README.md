@@ -83,5 +83,24 @@ cd frontend
 npm install
 npm run dev
 ```
-Buka `http://localhost:3000` untuk melihat **Job Market Skill Radar**, **Live LangGraph Trace**, dan **Before vs After CV Diff**.
+Buka `http://localhost:3000` untuk melihat **AI Copilot Chat**, **Job Finder & HR Radar**, **CV & Company Studio**, **Company Deep-Dive**, **Company Knowledge DB**, dan **Application Tracker**.
+
+### 5. Phase 2 — Data Platform (`dbt-duckdb` + `Dagster`) & AI Observability (`Arize Phoenix`)
+```powershell
+# Install extra Phase 2
+cd backend
+uv sync --extra dev --extra render --extra scraping --extra v2
+
+# Jalankan dbt Medallion models (Bronze -> Silver -> Gold) + dbt test
+$env:DUCKDB_PATH="..\data\market.duckdb"
+.\.venv\Scripts\dbt.exe build --profiles-dir ..\data_platform\dbt --project-dir ..\data_platform\dbt
+
+# Buka Dagster Asset Lineage & Checks UI (http://localhost:3001)
+cd ..\data_platform
+..\backend\.venv\Scripts\dagster.exe dev -m dagster_project -p 3001
+
+# Jalankan Arize Phoenix Tracing UI (http://localhost:6006)
+# Lalu set ENABLE_PHOENIX_TRACING=true di .env dan restart uvicorn
+..\backend\.venv\Scripts\phoenix.exe serve
+```
 

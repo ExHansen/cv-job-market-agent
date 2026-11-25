@@ -1,0 +1,76 @@
+version: 2
+
+models:
+  - name: stg_job_postings
+    description: "Cleaned, deduplicated Silver job postings."
+    columns:
+      - name: job_id
+        tests:
+          - unique
+          - not_null
+      - name: job_title
+        tests:
+          - not_null
+      - name: work_mode
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["Remote", "Hybrid", "On-site"]
+
+  - name: stg_job_skills
+    description: "Validated skill extractions linked to Silver job postings."
+    columns:
+      - name: job_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_job_postings')
+                field: job_id
+      - name: skill_canonical
+        tests:
+          - not_null
+
+  - name: stg_company_profiles
+    description: "Validated Silver company knowledge profiles."
+    columns:
+      - name: company_key
+        tests:
+          - unique
+          - not_null
+      - name: verdict
+        tests:
+          - accepted_values:
+              arguments:
+                values: ["Recommended", "Mixed - Selective", "Caution"]
+
+  - name: mart_role_skill_trends
+    description: "Gold analytical mart computing skill demand percentages by role family."
+    columns:
+      - name: role_skill_id
+        tests:
+          - unique
+          - not_null
+      - name: skill_tier
+        tests:
+          - accepted_values:
+              arguments:
+                values: ["Mandatory", "Rising", "Niche"]
+
+  - name: mart_company_job_overview
+    description: "Gold company + live open role overview mart."
+    columns:
+      - name: company_name
+        tests:
+          - not_null
+
+  - name: mart_daily_ingestion_health
+    description: "Gold DataOps observability mart tracking daily job ingestion quality."
+    columns:
+      - name: source
+        tests:
+          - not_null
+      - name: jobs_ingested
+        tests:
+          - not_null

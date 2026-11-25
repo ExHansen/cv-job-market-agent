@@ -35,6 +35,13 @@ data/master_profile.yaml
 !data/snapshots/
 !data/snapshots/**
 
+# Data Platform build artifacts (dbt & Dagster local state)
+data_platform/dbt/target/
+data_platform/dbt/logs/
+data_platform/dbt/dbt_packages/
+.dagster/
+dagster_home/
+
 # OS / Editor
 .DS_Store
 Thumbs.db
