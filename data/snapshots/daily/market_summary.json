@@ -1,145 +1,145 @@
 {
-  "updated_at_utc": "2026-11-25T10:46:47.586115+00:00",
-  "total_public_jobs": 29,
+  "updated_at_utc": "2026-11-26T09:21:18.064273+00:00",
+  "total_public_jobs": 39,
   "data_engineer_snapshot": {
     "role": "Data Engineer",
     "region": "Indonesia",
-    "snapshot_date": "2026-11-25T10:46:47.260256",
-    "sample_size": 34,
+    "snapshot_date": "2026-11-26T09:21:17.568988",
+    "sample_size": 32,
     "top_mandatory_skills": [],
     "rising_skills": [
       {
         "skill": "SQL",
         "category": "language",
         "job_count": 7,
-        "frequency_pct": 20.6
+        "frequency_pct": 21.9
       },
       {
         "skill": "Python",
         "category": "language",
         "job_count": 4,
-        "frequency_pct": 11.8
+        "frequency_pct": 12.5
       },
       {
         "skill": "GCP",
         "category": "cloud",
         "job_count": 3,
-        "frequency_pct": 8.8
+        "frequency_pct": 9.4
       },
       {
         "skill": "Apache Airflow",
         "category": "orchestration",
         "job_count": 3,
-        "frequency_pct": 8.8
-      },
-      {
-        "skill": "AWS",
-        "category": "cloud",
-        "job_count": 2,
-        "frequency_pct": 5.9
-      },
-      {
-        "skill": "Git",
-        "category": "dataops",
-        "job_count": 2,
-        "frequency_pct": 5.9
-      },
-      {
-        "skill": "Azure",
-        "category": "cloud",
-        "job_count": 2,
-        "frequency_pct": 5.9
-      },
-      {
-        "skill": "Dimensional Modeling",
-        "category": "modeling",
-        "job_count": 2,
-        "frequency_pct": 5.9
+        "frequency_pct": 9.4
       },
       {
         "skill": "Google BigQuery",
         "category": "warehouse",
         "job_count": 2,
-        "frequency_pct": 5.9
+        "frequency_pct": 6.3
       },
       {
-        "skill": "Prefect",
-        "category": "orchestration",
-        "job_count": 1,
-        "frequency_pct": 2.9
+        "skill": "Dimensional Modeling",
+        "category": "modeling",
+        "job_count": 2,
+        "frequency_pct": 6.3
       },
       {
-        "skill": "Databricks",
-        "category": "warehouse",
-        "job_count": 1,
-        "frequency_pct": 2.9
-      },
-      {
-        "skill": "Docker",
+        "skill": "Git",
         "category": "dataops",
-        "job_count": 1,
-        "frequency_pct": 2.9
+        "job_count": 2,
+        "frequency_pct": 6.3
       },
       {
-        "skill": "Dagster",
-        "category": "orchestration",
-        "job_count": 1,
-        "frequency_pct": 2.9
+        "skill": "Azure",
+        "category": "cloud",
+        "job_count": 2,
+        "frequency_pct": 6.3
+      },
+      {
+        "skill": "AWS",
+        "category": "cloud",
+        "job_count": 2,
+        "frequency_pct": 6.3
       },
       {
         "skill": "RAG / Vector DB",
         "category": "ai_backend",
         "job_count": 1,
-        "frequency_pct": 2.9
-      },
-      {
-        "skill": "Data Quality",
-        "category": "governance",
-        "job_count": 1,
-        "frequency_pct": 2.9
-      },
-      {
-        "skill": "Scala",
-        "category": "language",
-        "job_count": 1,
-        "frequency_pct": 2.9
-      },
-      {
-        "skill": "LangGraph",
-        "category": "ai_backend",
-        "job_count": 1,
-        "frequency_pct": 2.9
+        "frequency_pct": 3.1
       },
       {
         "skill": "dbt",
         "category": "transformation",
         "job_count": 1,
-        "frequency_pct": 2.9
+        "frequency_pct": 3.1
       },
       {
-        "skill": "Kubernetes",
-        "category": "dataops",
+        "skill": "LangGraph",
+        "category": "ai_backend",
         "job_count": 1,
-        "frequency_pct": 2.9
-      },
-      {
-        "skill": "Snowflake",
-        "category": "warehouse",
-        "job_count": 1,
-        "frequency_pct": 2.9
+        "frequency_pct": 3.1
       },
       {
         "skill": "CI/CD",
         "category": "dataops",
         "job_count": 1,
-        "frequency_pct": 2.9
+        "frequency_pct": 3.1
+      },
+      {
+        "skill": "Scala",
+        "category": "language",
+        "job_count": 1,
+        "frequency_pct": 3.1
+      },
+      {
+        "skill": "Snowflake",
+        "category": "warehouse",
+        "job_count": 1,
+        "frequency_pct": 3.1
+      },
+      {
+        "skill": "Prefect",
+        "category": "orchestration",
+        "job_count": 1,
+        "frequency_pct": 3.1
+      },
+      {
+        "skill": "Data Quality",
+        "category": "governance",
+        "job_count": 1,
+        "frequency_pct": 3.1
+      },
+      {
+        "skill": "Docker",
+        "category": "dataops",
+        "job_count": 1,
+        "frequency_pct": 3.1
+      },
+      {
+        "skill": "Databricks",
+        "category": "warehouse",
+        "job_count": 1,
+        "frequency_pct": 3.1
+      },
+      {
+        "skill": "Kubernetes",
+        "category": "dataops",
+        "job_count": 1,
+        "frequency_pct": 3.1
+      },
+      {
+        "skill": "Dagster",
+        "category": "orchestration",
+        "job_count": 1,
+        "frequency_pct": 3.1
       }
     ],
     "source_breakdown": {
       "remotive": 3,
       "arbeitnow": 2,
-      "linkedin": 16,
-      "indeed": 13
+      "linkedin": 15,
+      "indeed": 12
     }
   }
 }
